@@ -4,16 +4,18 @@ import com.codegym.model.Product;
 import com.codegym.repository.ProductRepository;
 import com.codegym.sevice.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
     @Override
-    public List<Product> findAll() {
-        return (List<Product>) productRepository.findAll();
+    public Iterable<Product> findAll() {
+        return (Iterable<Product>) productRepository.findAll();
     }
 
     @Override
